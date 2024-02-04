@@ -7,7 +7,7 @@ const DashboardLayout = () => {
         <>
             <div className='flex'>
                 {/* Dashboard sidebar contents starts here */}
-                <div>
+                <div className='border-r'>
                     <SideBar></SideBar>
                 </div>
                 {/* Dashboard main content starts here */}
