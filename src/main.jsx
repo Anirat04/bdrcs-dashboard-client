@@ -9,12 +9,24 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import DashboardLayout from './DashboardLayout/DashboardLayout.jsx';
+import Dashboard from './DashboardLayout/DashboardRoutes/Dashboard/Dashboard.jsx';
+import Beneficiaries from './DashboardLayout/DashboardRoutes/Beneficiaries/Beneficiaries.jsx';
 
 // All routes starts there
 const router = createBrowserRouter([
   {
     path: "/",
     element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Dashboard></Dashboard>
+      },
+      {
+        path: "/beneficiaries",
+        element: <Beneficiaries></Beneficiaries>
+      }
+    ]
   },
 ]);
 // All routes ends there
