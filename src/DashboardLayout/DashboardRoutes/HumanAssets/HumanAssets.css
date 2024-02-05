@@ -77,3 +77,13 @@
     background: #2AA778;
     border-color: #1e40af;
 }
+
+
+.custom-select .react-select__control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.custom-select span{
+    display: none;
+}

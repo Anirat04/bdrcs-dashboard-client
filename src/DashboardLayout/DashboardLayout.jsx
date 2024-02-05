@@ -12,7 +12,7 @@ const DashboardLayout = () => {
                     <SideBar></SideBar>
                 </div>
                 {/* Dashboard main content starts here */}
-                <div className='bg-[#F8F8F8] w-full'>
+                <div className='bg-[#F8F8F8] w-full min-h-screen'>
                     <NavBar></NavBar>
                     <Outlet></Outlet>
                 </div>
