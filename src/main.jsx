@@ -11,6 +11,7 @@ import {
 import DashboardLayout from './DashboardLayout/DashboardLayout.jsx';
 import Dashboard from './DashboardLayout/DashboardRoutes/Dashboard/Dashboard.jsx';
 import Beneficiaries from './DashboardLayout/DashboardRoutes/Beneficiaries/Beneficiaries.jsx';
+import HumanAssets from './DashboardLayout/DashboardRoutes/HumanAssets/HumanAssets.jsx';
 
 // All routes starts there
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/beneficiaries",
         element: <Beneficiaries></Beneficiaries>
+      },
+      {
+        path: "/humanAssets",
+        element: <HumanAssets></HumanAssets>
       }
     ]
   },
