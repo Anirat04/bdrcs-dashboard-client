@@ -23,7 +23,7 @@ const HumanAssets = () => {
         control: (provided, state) => ({
             ...provided,
             // height: '40px',
-            width: '369px',
+            // width: '369px',
             // border: '1px solid #E6E6E6',
             border: 'none',
             boxShadow: state.isFocused ? null : null, // Remove the box shadow on focus
@@ -81,13 +81,25 @@ const HumanAssets = () => {
         { value: 'Patron Member', label: 'Patron Member' }
     ]
 
+    const unitOption = [
+        { value: 'National Headquarters', label: 'National Headquarters' },
+        { value: 'Narayanganj RC Unit', label: 'Narayanganj RC Unit' },
+        { value: 'Narsingdi RC Unit', label: 'Narsingdi RC Unit' },
+        { value: 'Madaripur RC Unit', label: 'Madaripur RC Unit' },
+    ]
+
+    const upazilaOption = [
+        { value: 'Upazila Demo 1', label: 'Upazila Demo 1' },
+        { value: 'Upazila Demo 2', label: 'Upazila Demo 2' },
+    ]
+
     return (
         <div>
             <div>
                 <p className='text-[20px] text-[#5C5C5C]'>Add New Member</p>
             </div>
             <div>
-                <form className='bg-white max-w-screen-2xl mx-auto p-8' onSubmit={handleSubmit(onSubmit)}>
+                <form className='bg-white max-w-screen-2xl  mx-auto p-8' onSubmit={handleSubmit(onSubmit)}>
                     {/* First row of desktop view */}
                     <div className='flex gap-5'>
                         {/* Prefix select */}
@@ -99,7 +111,7 @@ const HumanAssets = () => {
                                 defaultValue=""
                                 render={({ field }) => (
                                     <Select
-                                        className='custom-select h-[40px] border border-[#E6E6E6] rounded-[3px]'
+                                        className='custom-select w-[369px] h-[40px] border border-[#E6E6E6] rounded-[3px]'
                                         components={{ DropdownIndicator }}
                                         options={prefixOption}
                                         placeholder="Select Prefix"
@@ -122,7 +134,7 @@ const HumanAssets = () => {
                         {/* Is Alive checkbox */}
                         <div className='flex items-center h-[41px] pt-[43px]'>
                             <label className="b-contain">
-                                <input className='' type="checkbox" placeholder="Is Alive" {...register("Is Alive", {})} />
+                                <input className='' type="checkbox" placeholder="Is Alive" {...register("Is_Alive", {})} />
                                 <div className="b-input min-w-[26.93px] min-h-[27.96px]"></div>
                             </label>
                             <span className='text-[#777777] text-[16px] ml-8 mt-2'>Is Alive</span>
@@ -139,7 +151,7 @@ const HumanAssets = () => {
                                 defaultValue=""
                                 render={({ field }) => (
                                     <Select
-                                        className='custom-select h-[40px] border border-[#E6E6E6] rounded-[3px]'
+                                        className='custom-select w-[477px] h-[40px] border border-[#E6E6E6] rounded-[3px]'
                                         components={{ DropdownIndicator }}
                                         options={MemberTypeOption}
                                         placeholder="Select Member Type"
@@ -150,6 +162,146 @@ const HumanAssets = () => {
                                     />
                                 )}
                             />
+                        </div>
+                    </div>
+                    {/* Second Row */}
+                    <div className='mt-5 flex gap-6'>
+                        {/* First column according to the desktop view */}
+                        <div>
+                            <div className='flex items-end gap-4 mb-3'>
+                                {/* Unit select field */}
+                                <div>
+                                    <div className='relative w-fit'>
+                                        <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>3. Unit</p>
+                                        <span className='text-[20px] text-[#FF000A] absolute -top-1 -right-3'>*</span>
+                                    </div>
+                                    <Controller
+                                        name="unit"
+                                        control={control}
+                                        defaultValue=""
+                                        render={({ field }) => (
+                                            <Select
+                                                className='custom-select  w-[476px] h-[40px] border border-[#E6E6E6] rounded-[3px]'
+                                                components={{ DropdownIndicator }}
+                                                options={unitOption}
+                                                placeholder="Select Unit"
+                                                styles={customStyles}
+                                                onChange={(selectedOption) => {
+                                                    field.onChange(selectedOption.value); // Pass only the value to react-hook-form
+                                                }}
+                                            />
+                                        )}
+                                    />
+                                </div>
+                                {/* Affiliated Upazila select field */}
+                                <div className='flex items-center gap-4'>
+                                    <h3 className='text-[#444444] text-[15px]'>Affiliated Upazila</h3>
+                                    <Controller
+                                        name="affiliated_upazila"
+                                        control={control}
+                                        defaultValue=""
+                                        render={({ field }) => (
+                                            <Select
+                                                className='custom-select w-[337px] h-[40px] border border-[#E6E6E6] rounded-[3px]'
+                                                components={{ DropdownIndicator }}
+                                                options={upazilaOption}
+                                                placeholder="Select Upazila"
+                                                styles={customStyles}
+                                                onChange={(selectedOption) => {
+                                                    field.onChange(selectedOption.value); // Pass only the value to react-hook-form
+                                                }}
+                                            />
+                                        )}
+                                    />
+                                </div>
+                            </div>
+                            {/* Three checkbox section */}
+                            <div className='mb-3 flex gap-10'>
+                                <div className='flex items-center h-[41px]'>
+                                    <label className="b-contain">
+                                        <input className='' type="checkbox" placeholder="Is Alive" {...register("managingBoardMember", {})} />
+                                        <div className="b-input min-w-[26.93px] min-h-[27.96px]"></div>
+                                    </label>
+                                    <span className='text-[#777777] text-[16px] ml-9 mt-2'>Managing Board Member</span>
+                                </div>
+                                <div className='flex items-center h-[41px]'>
+                                    <label className="b-contain">
+                                        <input className='' type="checkbox" placeholder="Is Alive" {...register("unitExecutiveCommitteMemberr", {})} />
+                                        <div className="b-input min-w-[26.93px] min-h-[27.96px]"></div>
+                                    </label>
+                                    <span className='text-[#777777] text-[16px] ml-9 mt-2'>Unit Executive Committee Member</span>
+                                </div>
+                                <div className='flex items-center h-[41px]'>
+                                    <label className="b-contain">
+                                        <input className='' type="checkbox" placeholder="Is Alive" {...register("chairman", {})} />
+                                        <div className="b-input min-w-[26.93px] min-h-[27.96px]"></div>
+                                    </label>
+                                    <span className='text-[#777777] text-[16px] ml-9 mt-2'>Chairman</span>
+                                </div>
+                            </div>
+                        </div>
+                        {/* second column according to the desktop view */}
+                        <div>
+                            <div className='relative w-fit'>
+                                <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>3. Unit</p>
+                                <span className='text-[20px] text-[#FF000A] absolute -top-1 -right-3'>*</span>
+                            </div>
+                            <div className='w-[476px] h-[129px] border border-[#E6E6E6] rounded-[3px]'>
+
+                            </div>
+                        </div>
+                    </div>
+                    {/* grid section starts here */}
+                    <div className='grid grid-cols-3 gap-4 mt-5'>
+                        {/* Member ID Card */}
+                        <div>
+                            <div className='relative w-fit'>
+                                <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>5. Member Id Card</p>
+                                <span className='text-[20px] text-[#FF000A] absolute -top-1 -right-3'>*</span>
+                            </div>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("memberIdCard", { required: true })} />
+                        </div>
+                        {/* Enrollment date */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>6. Enrollment Date</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="date" {...register("enrollmentDate")} />
+                        </div>
+                        {/* Contact Number */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>7. Contact No</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="number" {...register("contactNumber")} />
+                        </div>
+                        {/* Birth date */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>8. Birth Date</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="date" {...register("birthDate")} />
+                        </div>
+                        {/* Email Address */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>9. Email</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="email" {...register("email")} />
+                        </div>
+                        <div>
+                            <div className='relative w-fit'>
+                                <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>10. Gender</p>
+                                <span className='text-[20px] text-[#FF000A] absolute -top-1 -right-3'>*</span>
+                            </div>
+                            <div className='flex gap-16'>
+                                <div className='flex items-center h-[41px]'>
+                                    <label className="b-contain">
+                                        <input className='' type="checkbox"  {...register("male", {})} />
+                                        <div className="b-input min-w-[26.93px] min-h-[27.96px]"></div>
+                                    </label>
+                                    <span className='text-[#777777] text-[16px] ml-9 mt-2'>Male</span>
+                                </div>
+                                <div className='flex items-center h-[41px]'>
+                                    <label className="b-contain">
+                                        <input className='' type="checkbox" {...register("female", {})} />
+                                        <div className="b-input min-w-[26.93px] min-h-[27.96px]"></div>
+                                    </label>
+                                    <span className='text-[#777777] text-[16px] ml-9 mt-2'>Female</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
