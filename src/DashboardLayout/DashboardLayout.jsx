@@ -8,7 +8,7 @@ const DashboardLayout = () => {
         <>
             <div className='flex max-h-screen'>
                 {/* Dashboard sidebar contents starts here */}
-                <div className='border-r'>
+                <div className='min-w-[315px] border-r overflow-x-hidden overflow-y-auto'>
                     <SideBar></SideBar>
                 </div>
                 {/* Dashboard main content starts here */}
