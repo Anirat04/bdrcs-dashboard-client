@@ -134,7 +134,7 @@ const sideLinks = <>
 
 const SideBar = () => {
     return (
-        <div className='w-[315px] bg-white pt-5'>
+        <div className='min-w-[315px] bg-white pt-5'>
             <div>
                 <img className='mx-auto' src={bdrcsLogo} alt="Dashboard logo of BDRCS" />
             </div>

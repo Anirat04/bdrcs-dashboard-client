@@ -89,17 +89,37 @@ const HumanAssets = () => {
     ]
 
     const upazilaOption = [
-        { value: 'Upazila Demo 1', label: 'Upazila Demo 1' },
+        { value: 'O+', label: 'Upazila Demo 1' },
         { value: 'Upazila Demo 2', label: 'Upazila Demo 2' },
     ]
+
+    const BloodGroupOption = [
+        { value: 'O positive', label: 'O positive' },
+        { value: 'O negative', label: 'O negative' },
+        { value: 'A positive', label: 'A positive' },
+        { value: 'A negative', label: 'A negative' },
+        { value: 'B positive', label: 'B positive' },
+        { value: 'B negative', label: 'B negative' },
+        { value: 'AB positive', label: 'AB positive' },
+        { value: 'AB negative', label: 'AB negative' },
+    ]
+
+    const ReligionOption = [
+        { value: 'Islam', label: 'Islam' },
+        { value: 'Hindu', label: 'Hindu' },
+        { value: 'Christian', label: 'Christian' },
+        { value: 'Buddhism', label: 'Buddhism' },
+    ]
+
+
 
     return (
         <div>
             <div>
-                <p className='text-[20px] text-[#5C5C5C]'>Add New Member</p>
+                <p className='text-[20px] text-[#5C5C5C] ml-[26px] py-3'>Add New Member</p>
             </div>
             <div>
-                <form className='bg-white max-w-screen-2xl  mx-auto p-8' onSubmit={handleSubmit(onSubmit)}>
+                <form className='bg-white max-w-screen-2xl  mx-auto p-8 pb-24 mb-8 rounded-[5px]' onSubmit={handleSubmit(onSubmit)}>
                     {/* First row of desktop view */}
                     <div className='flex gap-5'>
                         {/* Prefix select */}
@@ -252,7 +272,7 @@ const HumanAssets = () => {
                         </div>
                     </div>
                     {/* grid section starts here */}
-                    <div className='grid grid-cols-3 gap-4 mt-5'>
+                    <div className='grid grid-cols-3 gap-y-6 gap-x-5 mt-5'>
                         {/* Member ID Card */}
                         <div>
                             <div className='relative w-fit'>
@@ -269,18 +289,19 @@ const HumanAssets = () => {
                         {/* Contact Number */}
                         <div>
                             <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>7. Contact No</p>
-                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="number" {...register("contactNumber")} />
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("contactNumber")} />
                         </div>
-                        {/* Birth date */}
+                        {/*8. Birth date */}
                         <div>
                             <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>8. Birth Date</p>
                             <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="date" {...register("birthDate")} />
                         </div>
-                        {/* Email Address */}
+                        {/*9. Email Address */}
                         <div>
                             <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>9. Email</p>
                             <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="email" {...register("email")} />
                         </div>
+                        {/*10. Gender checkbox*/}
                         <div>
                             <div className='relative w-fit'>
                                 <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>10. Gender</p>
@@ -303,47 +324,133 @@ const HumanAssets = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* 11. Blood Group */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>11. BloodGroup</p>
+                            <Controller
+                                name="BloodGroup"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <Select
+                                        className='custom-select  w-full h-[40px] border border-[#E6E6E6] rounded-[3px]'
+                                        components={{ DropdownIndicator }}
+                                        options={BloodGroupOption}
+                                        placeholder="Select Blood Group"
+                                        styles={customStyles}
+                                        onChange={(selectedOption) => {
+                                            field.onChange(selectedOption.value); // Pass only the value to react-hook-form
+                                        }}
+                                    />
+                                )}
+                            />
+                        </div>
+                        {/* 12. Religion */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>12. Religion</p>
+                            <Controller
+                                name="Religion"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => (
+                                    <Select
+                                        className='custom-select  w-full h-[40px] border border-[#E6E6E6] rounded-[3px]'
+                                        components={{ DropdownIndicator }}
+                                        options={ReligionOption}
+                                        placeholder="Select Religion"
+                                        styles={customStyles}
+                                        onChange={(selectedOption) => {
+                                            field.onChange(selectedOption.value); // Pass only the value to react-hook-form
+                                        }}
+                                    />
+                                )}
+                            />
+                        </div>
+                        {/* 13. Father's Name */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>13. Father's Name</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("FatherName")} />
+                        </div>
+                        {/* 14. Mother's Name */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>14. Mother's Name</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("MotherName")} />
+                        </div>
+                        {/* 15. Spouse's Name */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>15. Spouse's Name</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("SpouseName")} />
+                        </div>
+                        {/* 16. Present Address */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>16. Present Address</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("PresentAddress")} />
+                        </div>
+                        {/* 17. Permanent Address Required */}
+                        <div>
+                            <div className='relative w-fit'>
+                                <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>17. Permanent Addressd</p>
+                                <span className='text-[20px] text-[#FF000A] absolute -top-1 -right-3'>*</span>
+                            </div>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("PermanentAddress", { required: true })} />
+                        </div>
+                        {/* 18. Occupation */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>18. Occupation</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("Occupation")} />
+                        </div>
+                        {/* 19. National ID */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>19. National ID</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("NID")} />
+                        </div>
+                        {/* 20. Birth Certificate No */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>20. Birth Certificate No</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("birth_certificate_number")} />
+                        </div>
+                        {/* 21. Passport No */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>21. Passport No</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("passport_num")} />
+                        </div>
+                        {/* 22. Education */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>22. Education</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("education")} />
+                        </div>
+                        {/* 23. Member Form Serial */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>23. Member Form Serial</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("member_form_serial")} />
+                        </div>
+                        {/* 24. Money Receipt No. */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>24. Money Receipt No.</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("member_form_serial")} />
+                        </div>
+                        {/* 25. Project Activities in Last 10 years */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>25. Project Activities in Last 10 years</p>
+                            <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("member_form_serial")} />
+                        </div>
                     </div>
-
-                    {/* 
-                    <select {...register("Unit", { required: true })}>
-                        <option value="National Headquaters">National Headquaters</option>
-                    </select>
-                    <select {...register("Affiliated Upazila")}>
-                        <option value="Select Upazila">Select Upazila</option>
-                    </select>
-                    <input type="checkbox" placeholder="Managing Board Member" {...register("Managing Board Member", {})} />
-                    <input type="checkbox" placeholder="Unit Executive Committee Member" {...register("Unit Executive Committee Member", {})} />
-                    <input type="checkbox" placeholder="Chairman" {...register("Chairman", {})} />
-                    <input type="number" placeholder="Member Id Card" {...register("Member Id Card", { required: true })} />
-                    <input type="datetime" placeholder="Enrollment Date" {...register("Enrollment Date", {})} />
-                    <input type="number" placeholder="Contact No" {...register("Contact No", {})} />
-                    <input type="datetime" placeholder="Birth Date" {...register("Birth Date", {})} />
-                    <input type="email" placeholder="Email" {...register("Email", {})} />
-                    <input type="checkbox" placeholder="Male" {...register("Male", {})} />
-                    <input type="checkbox" placeholder="Female" {...register("Female", {})} />
-                    <select {...register("Blood Group")}>
-                        <option value="AB Positive">AB Positive</option>
-                    </select>
-                    <select {...register("Religion")}>
-                        <option value="Islam">Islam</option>
-                    </select>
-                    <input type="text" placeholder="Father's Name" {...register("FatherName", {})} />
-                    <input type="text" placeholder="Mother's Name" {...register("MotherName", {})} />
-                    <input type="text" placeholder="Spouse's Name" {...register("SpouseName", {})} />
-                    <input type="text" placeholder="Present Address" {...register("Present Address", {})} />
-                    <input type="text" placeholder="Permanent Address" {...register("Permanent Address", { required: true })} />
-                    <input type="text" placeholder="Occupation" {...register("Occupation", {})} />
-                    <input type="number" placeholder="National ID" {...register("National ID", {})} />
-                    <input type="number" placeholder="Birth Certificate No" {...register("Birth Certificate No", {})} />
-                    <input type="text" placeholder="Passport No" {...register("Passport No", {})} />
-                    <input type="text" placeholder="Education" {...register("Education", {})} />
-                    <input type="text" placeholder="Member Form Serial" {...register} />
-                    <input type="number" placeholder="Money Receipt No." {...register("Money Receipt No.", {})} />
-                    <input type="text" placeholder="Project Activities in Last 10 years" {...register("Project Activities in Last 10 years", {})} />
-                    <input type="number" placeholder="Emergency Contact No" {...register("Emergency Contact No", {})} /> */}
-
-                    <input type="submit" />
+                    {/* last row with flex */}
+                    <div className='flex justify-between mt-6'>
+                        {/* 26. Emergency Contact No */}
+                        <div>
+                            <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>26. Emergency Contact No</p>
+                            <input className='w-[476px] h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("emergency_contact")} />
+                        </div>
+                        <div className='flex gap-6 mt-3'>
+                            <button className='bg-[#2AA778] w-[132px] h-[36px] rounded-[3px]'>
+                                <input className='px-0 text-[15px] font-bold text-white' value='Save' type="submit" />
+                            </button>
+                            <button className='bg-[#878FA7] w-[132px] h-[36px] rounded-[3px]'>
+                                <input className='px-0 text-[15px] font-bold text-white' value='Cancel' type="reset" />
+                            </button>
+                        </div>
+                    </div>
                 </form>
 
             </div >

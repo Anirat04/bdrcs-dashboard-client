@@ -2,7 +2,7 @@
 
 const NavBar = () => {
     return (
-        <div className=' h-20 flex items-center gap-4 pl-7 shadow-sm'>
+        <div className=' h-20 flex items-center gap-4 pl-7 shadow-sm  border-b'>
             {/* Search field */}
             <div className='flex items-center relative'>
                 <input className='w-[1108px] h-[45px] rounded-md pl-5 focus:outline-[#2AA778] focus:caret-[#2AA778]' type="text" placeholder='Search' />
