@@ -1,0 +1,27 @@
+/* Targeting a specific div's scrollbar by class */
+
+/* Width */
+.customScroll::-webkit-scrollbar {
+    width: 5px;
+    height: 80px;
+}
+
+/* handle background color off scroll bar bg */
+.customScroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle scrollbar color and radius */
+.customScroll::-webkit-scrollbar-thumb {
+    background: #c5cfcb;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+/* Handle on hover */
+.customScroll::-webkit-scrollbar-thumb:hover {
+    background: #2AA778;
+}

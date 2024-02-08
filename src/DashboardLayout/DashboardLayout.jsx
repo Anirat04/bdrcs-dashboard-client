@@ -2,13 +2,14 @@ import React from 'react';
 import SideBar from './Shared/SideBar/SideBar';
 import { Outlet } from 'react-router-dom';
 import NavBar from './Shared/NavBar/NavBar';
+import './CustomScroll.css'
 
 const DashboardLayout = () => {
     return (
         <>
             <div className='flex max-h-screen'>
                 {/* Dashboard sidebar contents starts here */}
-                <div className='min-w-[315px] border-r overflow-x-hidden overflow-y-auto'>
+                <div className='customScroll min-w-[315px] border-r overflow-x-hidden overflow-y-auto'>
                     <SideBar></SideBar>
                 </div>
                 {/* Dashboard main content starts here */}

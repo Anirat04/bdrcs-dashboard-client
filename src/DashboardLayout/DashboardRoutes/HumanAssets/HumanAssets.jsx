@@ -305,7 +305,7 @@ const HumanAssets = () => {
                     </div>
                     {/* grid section starts here */}
                     <div className='grid grid-cols-3 gap-y-6 gap-x-5 mt-5'>
-                        {/* Member ID Card */}
+                        {/* 5. Member ID Card */}
                         <div>
                             <div className='relative w-fit'>
                                 <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>5. Member Id Card</p>
@@ -313,12 +313,12 @@ const HumanAssets = () => {
                             </div>
                             <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("memberIdCard", { required: true })} />
                         </div>
-                        {/* Enrollment date */}
+                        {/* 6. Enrollment date */}
                         <div>
                             <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>6. Enrollment Date</p>
                             <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="date" {...register("enrollmentDate")} />
                         </div>
-                        {/* Contact Number */}
+                        {/* 7. Contact Number */}
                         <div>
                             <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>7. Contact No</p>
                             <input className='w-full h-[40px] border border-[#E6E6E6] rounded-[3px]' type="text" {...register("contactNumber")} />
