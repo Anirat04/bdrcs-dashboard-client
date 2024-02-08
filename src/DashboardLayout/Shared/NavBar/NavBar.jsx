@@ -3,7 +3,7 @@ import { FaBars } from "react-icons/fa6";
 const NavBar = ({handleOpenSidebar}) => {
     return (
         <>
-            <div className='h-20 flex justify-between items-center gap-4 pl-7 shadow-sm  border-b pr-5 xl:pr-0'>
+            <div className='h-20 flex justify-between items-center gap-4 pl-7 shadow-sm  border-b pr-7'>
                 {/* Search field */}
                 <div className="lg:hidden">
                     <FaBars onClick={handleOpenSidebar} ></FaBars>

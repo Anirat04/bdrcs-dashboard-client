@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet";
 
 
 const Dashboard = () => {
     return (
         <>
             <div className='px-8 pt-5'>
+                <Helmet>
+                    <title>BDRCS | Dashboard</title>
+                </Helmet>
                 <p className='text-[20px] text-[#878FA7] ml-4'>Dashboard</p>
                 <div className='grid gap-5 xl:grid-cols-4 justify-items-center mt-4'>
                     {/* Volunteers card */}

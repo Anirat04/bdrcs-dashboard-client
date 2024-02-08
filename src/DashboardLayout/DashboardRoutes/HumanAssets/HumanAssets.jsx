@@ -3,6 +3,7 @@ import { Controller, useForm } from 'react-hook-form';
 import './HumanAssets.css'
 import Select, { components } from 'react-select'
 import { useEffect, useRef, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 
 const HumanAssets = () => {
@@ -132,6 +133,9 @@ const HumanAssets = () => {
     return (
         <>
             <div>
+                <Helmet>
+                    <title>BDRCS | Human Assets</title>
+                </Helmet>
                 <div>
                     <p className='text-[20px] text-[#5C5C5C] ml-[26px] py-3'>Add New Member</p>
                 </div>
@@ -469,7 +473,7 @@ const HumanAssets = () => {
                             </div>
                         </div>
                         {/* last row with flex */}
-                        <div className='flex flex-col justify-between mt-6'>
+                        <div className='flex flex-col xl:flex-row justify-between mt-6'>
                             {/* 26. Emergency Contact No */}
                             <div>
                                 <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>26. Emergency Contact No</p>
