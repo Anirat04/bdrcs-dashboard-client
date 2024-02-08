@@ -5,7 +5,7 @@ const Dashboard = () => {
         <>
             <div className='px-8 pt-5'>
                 <p className='text-[20px] text-[#878FA7] ml-4'>Dashboard</p>
-                <div className='grid grid-cols-4 justify-items-center mt-4'>
+                <div className='grid gap-5 xl:grid-cols-4 justify-items-center mt-4'>
                     {/* Volunteers card */}
                     <div className='bg-white w-[348px] h-[153px] flex justify-center items-center gap-9 rounded-lg'>
                         <div>

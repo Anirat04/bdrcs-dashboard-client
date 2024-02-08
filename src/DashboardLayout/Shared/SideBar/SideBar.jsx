@@ -5,7 +5,7 @@ import './SideBar.css'
 
 
 const sideLinks = <>
-    <ul className='px-5 mt-5'>
+    <ul className='px-3 xl:px-5 mt-5'>
         {/* Dashboard */}
         <NavLink to='/' className='sideLI flex items-center gap-2 rounded-[4px] h-[48px] pl-4'>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,8 +134,8 @@ const sideLinks = <>
 
 const SideBar = () => {
     return (
-        <div className='min-w-[315px] bg-white pt-5'>
-            <div>
+        <div className='xl:min-w-[315px] bg-white pt-5'>
+            <div className='w-[85%] mx-auto xl:w-full'>
                 <img className='mx-auto' src={bdrcsLogo} alt="Dashboard logo of BDRCS" />
             </div>
             {/* Dashboard  sidebar route ul starts here*/}
