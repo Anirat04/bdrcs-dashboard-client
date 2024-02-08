@@ -1,14 +1,17 @@
-import React from 'react';
+
 import { Controller, useForm } from 'react-hook-form';
 import './HumanAssets.css'
 import Select, { components } from 'react-select'
+import { useEffect, useRef, useState } from 'react';
 
 
 const HumanAssets = () => {
-    const { register, handleSubmit, control, formState: { errors } } = useForm();
+    // const [isImageSelected, setIsImageSelected] = useState(false);
+    const { register, handleSubmit, control, setValue, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     console.log(errors);
 
+    // Select field arrow svg replacement style
     const DropdownIndicator = props => {
         return (
             <components.DropdownIndicator {...props}>
@@ -18,7 +21,7 @@ const HumanAssets = () => {
             </components.DropdownIndicator>
         );
     };
-
+    // React select customization styles
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
@@ -35,7 +38,7 @@ const HumanAssets = () => {
                 fill: '#2AA778'
             },
         }),
-        menu: (provided, state) => ({
+        menu: (provided) => ({
             ...provided,
             padding: "5px",
         }),
@@ -67,6 +70,7 @@ const HumanAssets = () => {
         }),
     };
 
+    // React Select filed provided options there
     const prefixOption = [
         { value: 'Prefix Demo 1', label: 'Prefix Demo 1' },
         { value: 'Prefix Demo 2', label: 'Prefix Demo 2' },
@@ -110,8 +114,20 @@ const HumanAssets = () => {
         { value: 'Christian', label: 'Christian' },
         { value: 'Buddhism', label: 'Buddhism' },
     ]
+    const imgInp = useRef(null);
 
-
+    // For getting the value of the file input
+    useEffect(() => {
+        if (imgInp.current) {
+            imgInp.current.onchange = evt => {
+                const [file] = imgInp.current.files;
+                if (file) {
+                    inputImgPreview.src = URL.createObjectURL(file);
+                    setValue("image", file); // Register and set the value of "image" field in React Hook Form
+                }
+            };
+        }
+    }, [setValue]);
 
     return (
         <div>
@@ -263,11 +279,27 @@ const HumanAssets = () => {
                         {/* second column according to the desktop view */}
                         <div>
                             <div className='relative w-fit'>
-                                <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>3. Unit</p>
+                                <p className='text-[15px] text-[#777777] mb-1 ml-[2px]'>4. Photo</p>
                                 <span className='text-[20px] text-[#FF000A] absolute -top-1 -right-3'>*</span>
                             </div>
-                            <div className='w-[476px] h-[129px] border border-[#E6E6E6] rounded-[3px]'>
-
+                            <div className='w-[476px] h-[129px] border border-[#E6E6E6] rounded-[3px] flex items-center justify-center'>
+                                <div>
+                                    <input
+                                        accept="image/*"
+                                        type='file'
+                                        {...register("image")} // Pass only the name of the input field
+                                        ref={(e) => {
+                                            imgInp.current = e; // Assign the input element to imgInp ref
+                                        }}
+                                        className="file-input w-full max-w-xs pl-0 mb-4"
+                                    />
+                                    {/* <input accept="image/*" type='file' ref={imgInp} className="file-input w-full max-w-xs pl-0 mb-4" /> */}
+                                    <p className='text-[#BFBFBF] text-[13px]'>*Maximum allowed image size is 2 MB</p>
+                                </div>
+                                <div className='w-[109px] h-[109px] rounded-full bg-[#EFEFEF] '>
+                                    {/* Preview image */}
+                                    <img className='min-w-full min-h-full rounded-full' id="inputImgPreview" src="#" />
+                                </div>
                             </div>
                         </div>
                     </div>
