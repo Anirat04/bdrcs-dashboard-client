@@ -9,7 +9,7 @@ const Dashboard = () => {
                     <title>BDRCS | Dashboard</title>
                 </Helmet>
                 <p className='text-[20px] text-[#878FA7] ml-4'>Dashboard</p>
-                <div className='grid gap-5 xl:grid-cols-4 justify-items-center mt-4'>
+                <div className='grid gap-5 md:grid-cols-2 xl:grid-cols-4 justify-items-center mt-4 pb-24'>
                     {/* Volunteers card */}
                     <div className='bg-white w-[348px] h-[153px] flex justify-center items-center gap-9 rounded-lg'>
                         <div>
